@@ -130,7 +130,6 @@ var movePeg= function(evt){
       selectedPeg={x:undefined, y:undefined}
       suggestions=[]
       init()
-
     }
   }
 }
@@ -138,16 +137,16 @@ var movePeg= function(evt){
 var resetBoard=function(evt){
   var option = confirm("¿Esta seguro que desea reiniciar el juego?")
   if(option==1){
-    board=[
-      [, ,{value:1},{value:1}, {value:1}, , ,],
-      [, ,{value:1},{value:1}, {value:1}, , ,],
-      [{value:1}, {value:1}, {value:1}, {value:1}, {value:1}, {value:1},{value:1}],
-      [{value:1}, {value:1}, {value:1}, {value:0}, {value:1}, {value:1},{value:1}],
-      [{value:1}, {value:1}, {value:1}, {value:1}, {value:1}, {value:1},{value:1}],
-      [, ,{value:1},{value:1}, {value:1}, , ,],
-      [, ,{value:1},{value:1}, {value:1}, , ,]
-    ]
-    init()
+    for (var i=0;i < board.length; i++){
+      for (var j=0;j < board[i].length; j++){
+              console.log(j);
+        if (board[i][j]&&board[i][j].value===0) {
+          board[i][j]={ value: 1 }
+        }
+      }
+    }
+  board[3][3] ={ value: 0 }
+  init()
   }
 }
 

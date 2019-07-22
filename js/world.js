@@ -12,3 +12,5 @@ var board=[
 var selectedPeg={x:undefined, y:undefined}
 
 var suggestions=[]
+
+var score=0
