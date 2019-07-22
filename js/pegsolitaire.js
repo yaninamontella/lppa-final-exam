@@ -75,7 +75,6 @@ var showSuggestions=function(){
     right:getElement(createId(selectedPeg.x , selectedPeg.y+2)),
     bellow:getElement(createId(selectedPeg.x +2, selectedPeg.y)),
   }
-
   if(near.above.className=='peg'&& possible.above.className=='hole'){
     possible.above.className='suggestion'
     suggestions.push(possible.above.id)
@@ -97,7 +96,6 @@ var showSuggestions=function(){
 var selectPeg=function(evt){
   suggestions=[]
   var peg=evt.target
-  //split pone las palabras separdas por guien en un array
   var idParts=peg.id&&peg.id.length ? peg.id.split('-'):[]
   if(idParts.length===3){
     if(selectedPeg.x=== parseInt(idParts[1])&&selectedPeg.y=== parseInt(idParts[2])){
@@ -138,7 +136,30 @@ var movePeg= function(evt){
 }
 
 var resetBoard=function(evt){
-  var opcion = confirm("¿Esta seguro que desea reiniciar el juego?")
+  var option = confirm("¿Esta seguro que desea reiniciar el juego?")
+  if(option==1){
+    board=[
+      [, ,{value:1},{value:1}, {value:1}, , ,],
+      [, ,{value:1},{value:1}, {value:1}, , ,],
+      [{value:1}, {value:1}, {value:1}, {value:1}, {value:1}, {value:1},{value:1}],
+      [{value:1}, {value:1}, {value:1}, {value:0}, {value:1}, {value:1},{value:1}],
+      [{value:1}, {value:1}, {value:1}, {value:1}, {value:1}, {value:1},{value:1}],
+      [, ,{value:1},{value:1}, {value:1}, , ,],
+      [, ,{value:1},{value:1}, {value:1}, , ,]
+    ]
+    init()
+  }
+}
+
+var saveGame=function(evt){
+  var localBoard=JSON.stringify(board)
+  localStorage.setItem('board', localBoard)
+}
+
+var getLastGame=function(evt){
+  var guardado = localStorage.getItem('board')
+  board= JSON.parse(guardado)
+  init()
 }
 
 var addPegsEventHandlers=function(pegs){
@@ -157,6 +178,14 @@ var addResetEventHandlers=function(reset){
   reset.onclick=resetBoard
 }
 
+var addSaveEventHandlers=function(save){
+  save.onclick=saveGame
+}
+
+var addLastGameEventHandlers=function(lastGame){
+  lastGame.onclick=getLastGame
+}
+
 var init= function(){
   var boardElement=document.getElementById('board')
   boardElement.innerHTML=generateBoard()
@@ -166,6 +195,10 @@ var init= function(){
   addHolesEventHandlers(holes)
   var reset=document.getElementById('reset')
   addResetEventHandlers(reset)
+  var save=document.getElementById('save')
+  addSaveEventHandlers(save)
+  var lastGame=document.getElementById('lastGame')
+  addLastGameEventHandlers(lastGame)
 }
 
 window.onload=init

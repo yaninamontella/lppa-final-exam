@@ -10,14 +10,24 @@
   </head>
   <body>
     <div class="header">
-      <img src="img\ps_logo.png" alt="" class="header-image">
+      <div id="menu" class="menu">
+       <img src="img\ps_logo.png" alt="" class="header-image">
+        <ul class="listmenu">
+          <li class="reset" id="reset">
+            <h2>Reiniciar Juego</h2>
+          </li>
+          <li class="save" id="save">
+            <h2>Guardar Partida</h2>
+          </li>
+          <li class="lastGame" id="lastGame">
+            <h2>Ultima Partida</h2>
+          </li>
+        </ul>
+      </div>
       <h1 class="header-title">Peg Solitaire</h1>
     </div>
     <div class="main">
       <div id="board" class="board"></div>
-      <div id="menu" class="menu">
-        <button type="button" class="reset" id= "reset">Reniniciar</button>
-      </div>
     </div>
     <div class="footer">
       <a href="https://mail.google.com">Yanina Montella</a>
