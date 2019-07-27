@@ -113,6 +113,11 @@ var selectPeg=function(evt){
   }
 }
 
+var showScore= function(){
+  var newScore=document.getElementById('score-number')
+  newScore.innerHTML=score
+}
+
 var movePeg= function(evt){
   var id=evt.target.id
   var pos=getPositionFromId(id)
@@ -129,6 +134,8 @@ var movePeg= function(evt){
       board[newRow][newCol] = { value: 1 }
       selectedPeg={x:undefined, y:undefined}
       suggestions=[]
+      score++
+      showScore()
       init()
     }
   }
@@ -146,6 +153,7 @@ var resetBoard=function(evt){
       }
     }
   board[3][3] ={ value: 0 }
+  score=0
   init()
   }
 }

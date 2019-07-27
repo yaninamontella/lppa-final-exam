@@ -6,6 +6,13 @@
   height: 20vh;
 }
 
+.menu{
+  font-family:Arial, Helvetica, sans-serif;
+  width: 40vw;
+  height: 10vh;
+  font-size: 3vw;
+}
+
 .menu img{
   justify-content: center;
   width: 10vw;
@@ -26,9 +33,6 @@
 }
 
 .listmenu li h2 {
-  /*width: 30px;
-  line-height: 1.5;
-  letter-spacing: 1px;*/
   font-size: 2vw;
   width: 15vw;
   height: 5vh;
@@ -59,7 +63,7 @@ body{
   align-items: center;
   border-radius: 5px;
   padding: 1vw;
-  margin-top: 10vh;
+  margin-top: 2vh;
 }
 
 .board .mainrow{
@@ -93,12 +97,24 @@ body{
 .board button.suggestion{
   background-color: #FFce65;
 }
-.menu{
-  font-family:Arial, Helvetica, sans-serif;
-  width: 40vw;
-  height: 10vh;
-  font-size: 3vw;
 
+.score{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.score div{
+  margin-left: 2vw;
+  padding: 1vw;
+  border-style:groove;
+  border-width: 0.5vw;
+  background-color: #000000;
+  font-family: Impact, sans-serif;
+  letter-spacing: 0.6vw;
+  color:#76F361;
+  font-size: 1.5vw;
 }
 
 /******FOOTER******/
