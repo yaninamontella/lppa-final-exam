@@ -90,6 +90,7 @@ var init= function(){
   addSaveEventHandlers(save)
   var lastGame=document.getElementById('lastGame')
   addLastGameEventHandlers(lastGame)
+  gameOver()
 }
 
 window.onload=init

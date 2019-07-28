@@ -116,14 +116,14 @@ var selectPeg=function(evt){
       showSuggestions()
     }
   }
-  if(suggestions.length==0){
-    gameOver()
+  if (posibilities===0){
+    window.alert("No hay mas movimientos posibles");
   }
 }
 
 var gameOver=function(){
+  listPegs=document.getElementsByClassName('peg')
   posibilities=0
-  var listPegs=document.getElementsByClassName('peg')
   for (var i=0;i < listPegs.length; i++){
     var peg= listPegs[i]
     var idParts=peg.id&&peg.id.length ? peg.id.split('-'):[]
@@ -131,6 +131,7 @@ var gameOver=function(){
       selectedPeg.x=parseInt(idParts[1])
       selectedPeg.y=parseInt(idParts[2])
       createSuggestions()
+      console.log(suggestions)
       if(suggestions.length>0){
         posibilities=1
         i=listPegs.length
@@ -140,4 +141,5 @@ var gameOver=function(){
   if (posibilities===0){
     window.alert("No hay mas movimientos posibles");
   }
+  suggestions=[]
 }
