@@ -1,7 +1,6 @@
 var showScore= function(){
   var newScore=document.getElementById('score-number')
   newScore.innerHTML=score
-  init()
 }
 
 var movePeg= function(evt){
@@ -22,6 +21,7 @@ var movePeg= function(evt){
       suggestions=[]
       score++
       showScore()
+      init()
     }
   }
 }
@@ -31,7 +31,6 @@ var resetBoard=function(evt){
   if(option==1){
     for (var i=0;i < board.length; i++){
       for (var j=0;j < board[i].length; j++){
-              console.log(j);
         if (board[i][j]&&board[i][j].value===0) {
           board[i][j]={ value: 1 }
         }

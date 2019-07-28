@@ -14,3 +14,7 @@ var selectedPeg={x:undefined, y:undefined}
 var suggestions=[]
 
 var score=0
+
+var suggestions=[]
+
+var posibilities=1

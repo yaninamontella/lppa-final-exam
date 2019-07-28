@@ -62,7 +62,7 @@ var getElement= function(id){
   return element || {}
 }
 
-var showSuggestions=function(){
+var createSuggestions= function(){
   var near={
     above:getElement(createId(selectedPeg.x -1, selectedPeg.y)),
     left:getElement(createId(selectedPeg.x, selectedPeg.y-1)),
@@ -76,20 +76,25 @@ var showSuggestions=function(){
     bellow:getElement(createId(selectedPeg.x +2, selectedPeg.y)),
   }
   if(near.above.className=='peg'&& possible.above.className=='hole'){
-    possible.above.className='suggestion'
     suggestions.push(possible.above.id)
   }
   if(near.left.className=='peg'&& possible.left.className=='hole'){
-    possible.left.className='suggestion'
     suggestions.push(possible.left.id)
   }
   if(near.right.className=='peg'&& possible.right.className=='hole'){
-    possible.right.className='suggestion'
     suggestions.push(possible.right.id)
   }
   if(near.bellow.className=='peg'&& possible.bellow.className=='hole'){
-    possible.bellow.className='suggestion'
-    suggestions.push(possible.bellow.id)
+   suggestions.push(possible.bellow.id)
+  }
+}
+
+var showSuggestions=function(){
+  createSuggestions()
+  var elementSuggestion=undefined
+  for (var i=0;i < suggestions.length; i++){
+    elementSuggestion=document.getElementById(suggestions[i])
+    elementSuggestion.className='suggestion'
   }
 }
 
@@ -110,5 +115,29 @@ var selectPeg=function(evt){
       peg.className='selected'
       showSuggestions()
     }
+  }
+  if(suggestions.length==0){
+    gameOver()
+  }
+}
+
+var gameOver=function(){
+  posibilities=0
+  var listPegs=document.getElementsByClassName('peg')
+  for (var i=0;i < listPegs.length; i++){
+    var peg= listPegs[i]
+    var idParts=peg.id&&peg.id.length ? peg.id.split('-'):[]
+    if(idParts.length===3){
+      selectedPeg.x=parseInt(idParts[1])
+      selectedPeg.y=parseInt(idParts[2])
+      createSuggestions()
+      if(suggestions.length>0){
+        posibilities=1
+        i=listPegs.length
+      }
+    }
+  }
+  if (posibilities===0){
+    window.alert("No hay mas movimientos posibles");
   }
 }
