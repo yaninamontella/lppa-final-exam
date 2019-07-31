@@ -121,3 +121,26 @@ body{
 .footer{
   margin-top:3vh;
 }
+
+/******FORM***********/
+form {
+  position:absolute;
+  top: 20vw;
+  left: 30vh;
+  align-content: center;
+  text-align: center;
+  border: 0.1vw solid;
+  display:none;
+  width: 20vw;
+  height: 30vh;
+  padding: 1vw;
+  background-color: #DEE1DC;
+}
+
+form div{
+  font-size: 1vw;
+  font-family: fantasy;
+  margin-top: 1vw;
+  text-transform: uppercase;
+  letter-spacing: 0.2vw;
+}

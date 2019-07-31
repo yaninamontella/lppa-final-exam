@@ -18,3 +18,5 @@ var score=0
 var suggestions=[]
 
 var posibilities=1
+
+var scoreTable=[]

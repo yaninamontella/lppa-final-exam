@@ -1,49 +1,56 @@
-var createId= function(rowN, colN) {
-  return 'peg-'+rowN+'-'+colN
+var showScore= function(){
+  var newScore=document.getElementById('score-number')
+  newScore.innerHTML=score
+  init()
 }
 
-var getPositionFromId = function(id) {
-  var idParts = id && id.length ? id.split('-') : []
-  if (idParts.length === 3) {
-    return {
-      x: parseInt(idParts[1]),
-      y: parseInt(idParts[2])
+var movePeg= function(evt){
+  var id=evt.target.id
+  var pos=getPositionFromId(id)
+  if(pos.x!=undefined && pos.y!=undefined){
+    if(suggestions.includes(id)){
+      var oldRow= selectedPeg.x
+      var oldCol= selectedPeg.y
+      var newRow= pos.x
+      var newCol= pos.y
+      var midRow= oldRow + ((newRow-oldRow)/2)
+      var midCol= oldCol + ((newCol-oldCol)/2)
+      board[oldRow][oldCol] = { value: 0 }
+      board[midRow][midCol] = { value: 0 }
+      board[newRow][newCol] = { value: 1 }
+      selectedPeg={x:undefined, y:undefined}
+      suggestions=[]
+      score++
+      showScore()
     }
   }
-  return {}
 }
 
-var generateCell= function (cell, rowN, colN){
-  var html= '<button id="'+ createId(rowN, colN)+'" class="'
-  if(cell && cell.value){
-    html+= 'peg'
+var resetBoard=function(evt){
+  var option = confirm("¿Esta seguro que desea reiniciar el juego?")
+  if(option==1){
+    for (var i=0;i < board.length; i++){
+      for (var j=0;j < board[i].length; j++){
+        if (board[i][j]&&board[i][j].value===0) {
+          board[i][j]={ value: 1 }
+        }
+      }
+    }
+  board[3][3] ={ value: 0 }
+  score=0
+  showScore()
   }
-  else if (cell && cell.value==0){
-    html+= 'hole'
-  }
-  else {
-        html+= 'hidden'
-  }
-    html+= '"></button>'
-    return html
 }
 
-var generateRow= function(row, rowN){
-  var html='<div class="row">'
-  for (var j=0;j < row.length; j++){
-    html +=generateCell(row[j],rowN, j)
-  }
-  html+= '</div>'
-  return html
+var saveGame=function(evt){
+  var localBoard=JSON.stringify(board)
+  localStorage.setItem('board', localBoard)
 }
 
-var generateBoard=function(){
-  var html= '<div class="mainrow">'
-  for (var i=0;i < board.length; i++){
-    html+=generateRow(board[i],i)
-  }
-  html +='</div>'
-  return html
+var getLastGame=function(evt){
+  var guardado = localStorage.getItem('board')
+  board= JSON.parse(guardado)
+  init()
 }
 
 var unselectPeg=function(){
@@ -121,6 +128,16 @@ var selectPeg=function(evt){
   }
 }
 
+var saveName=function(){
+  var option = window.confirm("No hay mas movimientos posibles¿Desea guardar su puntaje?")
+  if(option==1){
+    var form=document.getElementsByClassName('save-user')
+    form[0].style.display="inline-block"
+    var formScore=document.getElementsByClassName('form-score')
+    formScore[0].innerHTML= "puntaje acumulado: "+ score
+  }
+}
+
 var gameOver=function(){
   listPegs=document.getElementsByClassName('peg')
   posibilities=0
@@ -131,15 +148,34 @@ var gameOver=function(){
       selectedPeg.x=parseInt(idParts[1])
       selectedPeg.y=parseInt(idParts[2])
       createSuggestions()
-      console.log(suggestions)
       if(suggestions.length>0){
         posibilities=1
         i=listPegs.length
       }
     }
   }
+    suggestions=[]
   if (posibilities===0){
-    window.alert("No hay mas movimientos posibles");
+    saveName()
   }
-  suggestions=[]
+}
+
+var saveScore=function(){
+  var userScore= document.getElementsByClassName("form-name")
+  if(userScore[0].value.length<3){
+    alert("El nombre debe tener un mínimo de 3 caracteres")
+  }
+  else {
+    scoreTable.push({name:userScore[0].value , score: score})
+    var form=document.getElementsByClassName('save-user')
+    form[0].style.display="none"
+    userScore[0].value=''
+  }
+}
+
+var cancelScore=function(){
+  var userScore= document.getElementsByClassName("form-name")
+  var form=document.getElementsByClassName('save-user')
+  form[0].style.display="none"
+  userScore[0].value=''
 }
