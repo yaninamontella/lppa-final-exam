@@ -16,7 +16,12 @@
 .menu img{
   justify-content: center;
   width: 10vw;
-  height: 20vh;
+  height: 19vh;
+  border: 0.3vw solid;
+}
+
+.menu img:hover{
+  border: 0.2vw inset;
 }
 
 .menu ul{
@@ -115,6 +120,13 @@ body{
   letter-spacing: 0.6vw;
   color:#76F361;
   font-size: 1.5vw;
+}
+
+.button-score img {
+  height: 5vh;
+  width: 5vw;
+  padding: 0vw;
+
 }
 
 /******FOOTER******/

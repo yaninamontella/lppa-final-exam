@@ -29,7 +29,7 @@
       <h1 class="header-title">Peg Solitaire</h1>
     </div>
     <div class="main">
-      <form class="save-user" action="index.html" method="saveUserName">
+      <form class="save-user" action="index.html">
         <div>Nombre:
           <input class="form-name"type="text" minlength="3" size="20" placeholder="Escriba aqui su nombre">
         </div>
@@ -39,17 +39,30 @@
           <button type="button" name="form-cancel"id="form-cancel">Cancelar</button>
         </div>
         <div class="fomr-pie">
-          <img src="img\gracias.gif" alt="" class="form-img">          
+          <img src="img\gracias.gif" alt="" class="form-img">
+        </div>
+      </form>
+      <form class="score-table" action="index.html">
+        <div class="score-list" id="score-list"></div>
+        <div>
+          <button type="button" name="scorel-ok" id="score-list-ok">Aceptar</button>
+          <img src="img\gracias.gif" alt="" class="form-img">
         </div>
       </form>
       <div class="score">
+        <div id="button-score" class="buton-score">
+          <button type="button" class="button-score" id="buton-score">
+            <img src="img\greenbutton.gif" alt="" class="form-img">
+          </button>
+        </div>
         <div class="score-label">PUNTAJE</div>
         <div class="score-number" id="score-number">0</div>
       </div>
       <div id="board" class="board"></div>
     </div>
     <div class="footer">
-      <a href="https://mail.google.com">Yanina Montella</a>
+      <a href="https://github.com/yaninamontella/lppa-final-exam">
+      </a>
     </div>
   </body>
 </html>

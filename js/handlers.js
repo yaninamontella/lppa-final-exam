@@ -34,6 +34,13 @@ var addSaveScoreCancelEventHandlers=function(saveScoreCancel){
   saveScoreCancel.onclick=cancelScore
 }
 
+var addShowScoreTableEventHandlers=function(showScoreTableOk){
+  showScoreTableOk.onclick=showScoreTable
+}
+
+var addCloseScoreTableEventHandlers=function(scoreListOk){
+  scoreListOk.onclick=closeScoreTable
+}
 var init= function(){
   var boardElement=document.getElementById('board')
   boardElement.innerHTML=generateBoard()
@@ -51,6 +58,10 @@ var init= function(){
   addSaveScoreOkEventHandlers(saveScoreOk)
   var saveScoreCancel=document.getElementById('form-cancel')
   addSaveScoreCancelEventHandlers(saveScoreCancel)
+  var showScoreTableOk=document.getElementById('button-score')
+  addShowScoreTableEventHandlers(showScoreTableOk)
+  var scoreListOk=document.getElementById('score-list-ok')
+  addCloseScoreTableEventHandlers(scoreListOk)
   gameOver()
 }
 

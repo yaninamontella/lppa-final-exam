@@ -48,9 +48,10 @@ var saveGame=function(evt){
 }
 
 var getLastGame=function(evt){
+  score =0
   var guardado = localStorage.getItem('board')
   board= JSON.parse(guardado)
-  init()
+  showScore()
 }
 
 var unselectPeg=function(){
@@ -178,4 +179,22 @@ var cancelScore=function(){
   var form=document.getElementsByClassName('save-user')
   form[0].style.display="none"
   userScore[0].value=''
+}
+
+var showScoreTable=function(){
+  scoreTable.sort
+  var html= '<ol class="listscore">'
+  for (var i=0;i < scoreTable.length; i++){
+    html+= '<li>'+scoreTable[i].name +'= '+scoreTable[i].score+'</li>'
+  }
+  html +='</ol>'
+  var boardScore=document.getElementById('score-list')
+  boardScore.innerHTML=html
+  var form=document.getElementsByClassName('score-table ')
+  form[0].style.display="inline-block"
+}
+
+var closeScoreTable=function(){
+  var form=document.getElementsByClassName('score-table')
+  form[0].style.display="none"
 }
