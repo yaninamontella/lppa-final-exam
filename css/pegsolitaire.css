@@ -58,7 +58,7 @@
 
 /****BODY*******/
 body{
-  background-color: #E2FBD2;
+  background-color: #353434;
 }
 
 .board{
@@ -72,7 +72,8 @@ body{
 }
 
 .board .mainrow{
-    background-color: #cccccc;
+    background-color: #000000;
+    border: 0.3vw solid #E4E0E0;
 }
 
 .board button{
@@ -88,11 +89,11 @@ body{
 }
 
 .board button.peg{
-  background-color: #0000ff;
+  background-color: #29C90F;
 }
 
 .board button.selected{
-  background-color: #00aa00;
+  background-color: #A1A6A0;
 }
 
 .board button.selected:active{
@@ -119,21 +120,89 @@ body{
   font-family: Impact, sans-serif;
   letter-spacing: 0.6vw;
   color:#76F361;
-  font-size: 1.5vw;
+  font-size: 2vw;
 }
 
 .button-score img {
   height: 5vh;
   width: 5vw;
   padding: 0vw;
-
 }
 
 /******FOOTER******/
 .footer{
-  margin-top:3vh;
+  margin-top:2vw;
+  padding-top: 2vw;
+  display: flex;
+  align-items: flex-start;
+  background-color:  #DEE1DC;
 }
 
+.footer-left{
+     margin-left: 3vw;
+}
+
+.footer-left input{
+   border: none;
+   border-radius: 0;
+   background-color: transparent;
+   border-bottom: solid 1px rgb(201, 201, 201);
+   text-decoration: none;
+   width: 300px;
+   height: 40px;
+}
+
+.footer-send{
+  margin-top: 3vh;
+}
+
+.footer-right{
+  margin-left: 5vw;
+}
+
+.footer-follow ul{
+  display: flex;
+  flex-direction: row;
+}
+
+.follow-list li a{
+  margin: 5px;
+  background-color: transparent;
+  border: solid 1px #000000;
+  border-style: inset;
+  border-radius: 0.2vw;
+  display: inline-block;
+  text-align: center;
+}
+
+.follow-item img{
+  height: 8vh;
+  width: 8vw;
+  margin: 2vw;
+  display:block;
+  margin:auto;
+  background-color 0.2s: transparent;
+  color #000000 ;
+  border-color 0.2s ease-in-out: ;
+  background-color: transparent;
+  border: solid 1px #c9c9c9;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  display: block;
+  text-align: center;
+  line-height: 2.65em;
+  color: inherit;
+}
+
+.footer-right h3{
+  font-family: fantasy;
+  font-size: 1vw;
+  line-height: 1.5;
+  letter-spacing: 0.2vw;
+  color: #000000;
+  text-transform: uppercase;
+}
 /******FORM***********/
 form {
   position:absolute;
@@ -155,4 +224,9 @@ form div{
   margin-top: 1vw;
   text-transform: uppercase;
   letter-spacing: 0.2vw;
+}
+
+.form-img{
+  width: 5vw;
+  height: 5vh;
 }

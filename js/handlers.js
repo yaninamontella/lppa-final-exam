@@ -41,6 +41,7 @@ var addShowScoreTableEventHandlers=function(showScoreTableOk){
 var addCloseScoreTableEventHandlers=function(scoreListOk){
   scoreListOk.onclick=closeScoreTable
 }
+
 var init= function(){
   var boardElement=document.getElementById('board')
   boardElement.innerHTML=generateBoard()
