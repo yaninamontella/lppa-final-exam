@@ -62,6 +62,7 @@ var unselectPeg=function(){
     for (var i=0;i < suggestion.length; i++){
       suggestion[i].className='hole'
     }
+    init()
   }
 }
 
@@ -98,6 +99,7 @@ var createSuggestions= function(){
 }
 
 var showSuggestions=function(){
+  suggestions=[]
   createSuggestions()
   var elementSuggestion=undefined
   for (var i=0;i < suggestions.length; i++){
@@ -107,7 +109,6 @@ var showSuggestions=function(){
 }
 
 var selectPeg=function(evt){
-  suggestions=[]
   var peg=evt.target
   var idParts=peg.id&&peg.id.length ? peg.id.split('-'):[]
   if(idParts.length===3){
@@ -182,7 +183,8 @@ var cancelScore=function(){
 }
 
 var showScoreTable=function(){
-  scoreTable.sort
+  scoreTable.sort(orderList)
+  scoreTable.splice(10)
   var html= '<ol class="listscore">'
   for (var i=0;i < scoreTable.length; i++){
     html+= '<li>'+scoreTable[i].name +'= '+scoreTable[i].score+'</li>'
@@ -197,4 +199,8 @@ var showScoreTable=function(){
 var closeScoreTable=function(){
   var form=document.getElementsByClassName('score-table')
   form[0].style.display="none"
+}
+
+var orderList = function(a, b){
+    return b.score - a.score
 }
