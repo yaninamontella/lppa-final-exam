@@ -42,6 +42,10 @@ var addCloseScoreTableEventHandlers=function(scoreListOk){
   scoreListOk.onclick=closeScoreTable
 }
 
+var addpostComEventHandlers=function(postCom){
+  postCom.onclick=sendComments
+}
+
 var init= function(){
   var boardElement=document.getElementById('board')
   boardElement.innerHTML=generateBoard()
@@ -63,6 +67,8 @@ var init= function(){
   addShowScoreTableEventHandlers(showScoreTableOk)
   var scoreListOk=document.getElementById('score-list-ok')
   addCloseScoreTableEventHandlers(scoreListOk)
+  var postCom=document.getElementById('post-com')
+  addpostComEventHandlers(postCom)
   gameOver()
 }
 

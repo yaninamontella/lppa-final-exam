@@ -204,3 +204,14 @@ var closeScoreTable=function(){
 var orderList = function(a, b){
     return b.score - a.score
 }
+
+var sendComments= function enviarCorreo() {
+  bodyText=document.getElementsByClassName('send-mess')
+  mailto = 'yani_montella@hotmail.com'
+  console.log(bodyText);
+  var sEmail = document.getElementsByClassName('send-email')
+  var sLink = 'mailto:' + escape(mailto)
+     + '?subject=' + escape('Comentario')
+     + '&body=' + bodyText[0].value
+  window.location.href = sLink
+}
