@@ -27,7 +27,7 @@ var movePeg= function(evt){
 }
 
 var resetBoard=function(evt){
-  var option = confirm("¿Esta seguro que desea reiniciar el juego?")
+  var option = confirm('¿Esta seguro que desea reiniciar el juego?')
   if(option==1){
     for (var i=0;i < board.length; i++){
       for (var j=0;j < board[i].length; j++){
@@ -126,17 +126,17 @@ var selectPeg=function(evt){
     }
   }
   if (posibilities===0){
-    window.alert("No hay mas movimientos posibles");
+    window.alert('No hay mas movimientos posibles');
   }
 }
 
 var saveName=function(){
-  var option = window.confirm("No hay mas movimientos posibles¿Desea guardar su puntaje?")
+  var option = window.confirm('No hay mas movimientos posibles¿Desea guardar su puntaje?')
   if(option==1){
     var form=document.getElementsByClassName('save-user')
-    form[0].style.display="inline-block"
+    form[0].style.display='inline-block'
     var formScore=document.getElementsByClassName('form-score')
-    formScore[0].innerHTML= "puntaje acumulado: "+ score
+    formScore[0].innerHTML= 'puntaje acumulado: '+ score
   }
 }
 
@@ -163,22 +163,22 @@ var gameOver=function(){
 }
 
 var saveScore=function(){
-  var userScore= document.getElementsByClassName("form-name")
+  var userScore= document.getElementsByClassName('form-name')
   if(userScore[0].value.length<3){
-    alert("El nombre debe tener un mínimo de 3 caracteres")
+    alert('El nombre debe tener un mínimo de 3 caracteres')
   }
   else {
     scoreTable.push({name:userScore[0].value , score: score})
     var form=document.getElementsByClassName('save-user')
-    form[0].style.display="none"
+    form[0].style.display='none'
     userScore[0].value=''
   }
 }
 
 var cancelScore=function(){
-  var userScore= document.getElementsByClassName("form-name")
+  var userScore= document.getElementsByClassName('form-name')
   var form=document.getElementsByClassName('save-user')
-  form[0].style.display="none"
+  form[0].style.display='none'
   userScore[0].value=''
 }
 
@@ -193,12 +193,12 @@ var showScoreTable=function(){
   var boardScore=document.getElementById('score-list')
   boardScore.innerHTML=html
   var form=document.getElementsByClassName('score-table ')
-  form[0].style.display="inline-block"
+  form[0].style.display='inline-block'
 }
 
 var closeScoreTable=function(){
   var form=document.getElementsByClassName('score-table')
-  form[0].style.display="none"
+  form[0].style.display='none'
 }
 
 var orderList = function(a, b){
