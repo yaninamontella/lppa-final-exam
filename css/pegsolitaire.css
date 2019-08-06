@@ -45,6 +45,7 @@
   font-size: 2vw;
   font-family:Arial, Helvetica, sans-serif;
   color: #8BF779;
+  text-transform: capitalize;
 }
 
 .header-title {
@@ -177,8 +178,8 @@ body {
 
 .follow-item img {
   display:block;
-  height: 6vh;
-  width: 6vw;
+  height: 5vh;
+  width: 4vw;
   margin:auto;
   background-color: transparent;
   border: solid 1px #c9c9c9;
@@ -216,11 +217,19 @@ form div {
   margin-top: 1vw;
   font-size: 1vw;
   font-family: fantasy;
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: 0.2vw;
+}
+
+.form-button{
+  text-transform: capitalize;
 }
 
 .form-img {
   width: 5vw;
   height: 5vh;
+}
+
+.score-label , .score-number {
+  text-transform: uppercase;
 }
