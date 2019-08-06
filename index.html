@@ -2,26 +2,26 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>peg solitaire</title>
+    <link rel="stylesheet" href="css\reset.css">
+    <link rel="stylesheet" href="css\pegsolitaire.css">
     <script src="js\world.js"></script>
     <script src="js\board.js"></script>
     <script src="js\pegsolitaire.js"></script>
     <script src="js\handlers.js"></script>
-    <link rel="stylesheet" href="css\reset.css">
-    <link rel="stylesheet" href="css\pegsolitaire.css">
   </head>
   <body>
     <div class="header">
       <div id="menu" class="menu">
        <img src="img\ps_logo.png" alt="" class="header-image">
         <ul class="listmenu">
-          <li class="reset" id="reset">
+          <li  id="reset" class="reset">
             <h2>Reiniciar Juego</h2>
           </li>
-          <li class="save" id="save">
+          <li  id="save" class="save">
             <h2>Guardar Partida</h2>
           </li>
-          <li class="last-game" id="last-game">
+          <li id="last-game" class="last-game">
             <h2>Ultima Partida</h2>
           </li>
         </ul>
@@ -43,19 +43,19 @@
         </div>
       </form>
       <form class="score-table" action="index.html">
-        <div class="score-list" id="score-list"></div>
+        <div id="score-list" class="score-list"></div>
         <div>
           <button type="button" name="scorel-ok" id="score-list-ok">Aceptar</button>
         </div>
       </form>
       <div class="score">
         <div id="button-score" class="buton-score">
-          <button type="button" class="button-score" id="buton-score">
+          <button type="button" id="buton-score" class="button-score">
             <img src="img\greenbutton.gif" alt="" class="form-img">
           </button>
         </div>
         <div class="score-label">PUNTAJE</div>
-        <div class="score-number" id="score-number">0</div>
+        <div id="score-number" class="score-number">0</div>
       </div>
       <div id="board" class="board"></div>
     </div>
