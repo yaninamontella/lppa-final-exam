@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  height: 20vh;
+  background-color: #DEE1DC;
+}
+
+.menu {
+  width: 40vw;
+  height: 10vh;
+  font-size: 3vw;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu img {
+  width: 10vw;
+  height: 19vh;
+  border: 0.3vw solid;
+  justify-content: center;
+}
+
+.menu img:hover {
+  border: 0.2vw inset;
+}
+
+.menu ul {
+  display: none;
+  position: absolute;
+}
+
+.menu:hover ul {
+  display: block;
+}
+
+.listmenu li:hover {
+  opacity: 0.6
+}
+
+.listmenu li h2 {
+  display: block;
+  width: 15vw;
+  height: 5vh;
+  background-color: #040404;
+  font-size: 2vw;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #8BF779;
+  text-transform: capitalize;
+}
+
+.header-title {
+  display: flex;
+  align-items: flex-end;
+  font-size: 15vh;
+  text-align: center;
+  margin-left: 5vw;
+  text-transform: uppercase;
+}

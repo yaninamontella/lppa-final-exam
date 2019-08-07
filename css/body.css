@@ -1,0 +1,71 @@
+body {
+  background-color: #353434;
+}
+
+.score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.score div {
+  margin-left: 2vw;
+  padding: 1vw;
+  background-color: #000000;
+  border-style: groove;
+  border-width: 0.5vw;
+  font-family: Impact, sans-serif;
+  letter-spacing: 0.6vw;
+  color: #76F361;
+  font-size: 2vw;
+}
+
+.button-score img {
+  height: 5vh;
+  width: 5vw;
+  padding: 0vw;
+}
+
+.board {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1vw;
+  margin-top: 2vh;
+  border-radius: 5px;
+}
+
+.board .mainrow {
+    background-color: #000000;
+    border: 0.3vw solid #E4E0E0;
+}
+
+.board button {
+  width: 3vw;
+  height: 3vw;
+  margin: 1vw;
+  border: 0.2vw solid #999;
+  border-radius: 2vw;
+}
+
+.board button.hidden {
+  visibility: hidden;
+}
+
+.board button.peg {
+  background-color: #29C90F;
+}
+
+.board button.selected {
+  background-color: #A1A6A0;
+}
+
+.board button.selected:active {
+  background-color: #006600;
+}
+
+.board button.suggestion {
+  background-color: #FFce65;
+}
