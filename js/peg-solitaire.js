@@ -94,7 +94,7 @@ var createSuggestions= function(){
     suggestions.push(possible.right.id)
   }
   if(near.bellow.className=='peg'&& possible.bellow.className=='hole'){
-   suggestions.push(possible.bellow.id)
+    suggestions.push(possible.bellow.id)
   }
 }
 
@@ -156,7 +156,7 @@ var gameOver=function(){
       }
     }
   }
-    suggestions=[]
+  suggestions=[]
   if (posibilities===0){
     saveName()
   }
@@ -202,7 +202,7 @@ var closeScoreTable=function(){
 }
 
 var orderList = function(a, b){
-    return b.score - a.score
+  return b.score - a.score
 }
 
 var sendComments= function enviarCorreo() {
