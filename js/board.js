@@ -13,7 +13,7 @@ var getPositionFromId= function(id) {
   return {}
 }
 
-var generateCell= function (cell, rowN, colN){
+var generateCell= function (cell, rowN, colN) {
   var html= '<button id="'+ createId(rowN, colN)+'" class="'
   if(cell && cell.value){
     html+= 'peg'
@@ -28,7 +28,7 @@ var generateCell= function (cell, rowN, colN){
     return html
 }
 
-var generateRow= function(row, rowN){
+var generateRow= function(row, rowN) {
   var html= '<div class="row">'
   for (var j= 0;j < row.length; j++){
     html+= generateCell(row[j],rowN, j)
@@ -37,9 +37,9 @@ var generateRow= function(row, rowN){
   return html
 }
 
-var generateBoard=function(){
+var generateBoard=function() {
   var html= '<div class="mainrow">'
-  for (var i= 0;i < board.length; i++){
+  for (var i= 0;i < board.length; i++) {
     html+= generateRow(board[i],i)
   }
   html += '</div>'

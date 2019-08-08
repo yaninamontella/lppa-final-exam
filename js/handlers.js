@@ -1,52 +1,52 @@
-var addPegsEventHandlers= function(pegs){
-  for (var i= 0;i < pegs.length; i++){
+var addPegsEventHandlers= function(pegs) {
+  for (var i= 0;i < pegs.length; i++) {
     pegs[i].onclick=selectPeg
   }
 }
 
-var addHolesEventHandlers= function(holes){
+var addHolesEventHandlers= function(holes) {
   for (var i= 0;i < holes.length; i++){
     holes[i].onclick= movePeg
   }
 }
 
-var addResetEventHandlers= function(reset){
+var addResetEventHandlers= function(reset) {
   reset.onclick= resetBoard
 }
 
-var addSaveEventHandlers= function(save){
+var addSaveEventHandlers= function(save) {
   save.onclick= saveGame
 }
 
-var addLastGameEventHandlers= function(lastGame){
+var addLastGameEventHandlers= function(lastGame) {
   lastGame.onclick= getLastGame
 }
 
-var addSaveScoreOkEventHandlers= function(saveScoreOk){
+var addSaveScoreOkEventHandlers= function(saveScoreOk) {
   saveScoreOk.onclick= saveScore
 }
 
-var addSaveScoreEventHandlers= function(saveScoreOk){
+var addSaveScoreEventHandlers= function(saveScoreOk) {
   saveScoreOk.onclick= saveScore
 }
 
-var addSaveScoreCancelEventHandlers= function(saveScoreCancel){
+var addSaveScoreCancelEventHandlers= function(saveScoreCancel) {
   saveScoreCancel.onclick= cancelScore
 }
 
-var addShowScoreTableEventHandlers= function(showScoreTableOk){
+var addShowScoreTableEventHandlers= function(showScoreTableOk) {
   showScoreTableOk.onclick= showScoreTable
 }
 
-var addCloseScoreTableEventHandlers= function(scoreListOk){
+var addCloseScoreTableEventHandlers= function(scoreListOk) {
   scoreListOk.onclick= closeScoreTable
 }
 
-var addpostComEventHandlers= function(postCom){
+var addpostComEventHandlers= function(postCom) {
   postCom.onclick= sendComments
 }
 
-var init= function(){
+var init= function() {
   var boardElement= document.getElementById('board')
   boardElement.innerHTML= generateBoard()
   var pegs= boardElement.getElementsByClassName('peg')

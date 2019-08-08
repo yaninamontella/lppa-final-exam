@@ -1,13 +1,13 @@
-var showScore= function(){
+var showScore= function() {
   var newScore= document.getElementById('score-number')
   newScore.innerHTML= score
   init()
 }
 
-var movePeg= function(evt){
+var movePeg= function(evt) {
   var id=evt.target.id
   var pos=getPositionFromId(id)
-  if(pos.x!=undefined && pos.y!=undefined){
+  if(pos.x!=undefined && pos.y!=undefined) {
     if(suggestions.includes(id)){
       var oldRow= selectedPeg.x
       var oldCol= selectedPeg.y
@@ -26,7 +26,7 @@ var movePeg= function(evt){
   }
 }
 
-var resetBoard= function(evt){
+var resetBoard= function(evt) {
   var option= confirm('¿Esta seguro que desea reiniciar el juego?')
   if(option== 1){
     for (var i= 0;i < board.length; i++){
@@ -42,36 +42,36 @@ var resetBoard= function(evt){
   }
 }
 
-var saveGame= function(evt){
+var saveGame= function(evt) {
   var localBoard= JSON.stringify(board)
   localStorage.setItem('board', localBoard)
 }
 
-var getLastGame= function(evt){
+var getLastGame= function(evt) {
   score= 0
   var guardado= localStorage.getItem('board')
   board= JSON.parse(guardado)
   showScore()
 }
 
-var unselectPeg= function(){
-  if (selectedPeg.x!= undefined && selectedPeg.y!= undefined){
+var unselectPeg= function() {
+  if (selectedPeg.x!= undefined && selectedPeg.y!= undefined) {
     var prevSelectId=createId(selectedPeg.x, selectedPeg.y)
     document.getElementById(prevSelectId).className= 'peg'
     var suggestion= document.getElementsByClassName('suggestion')
-    for (var i= 0;i < suggestion.length; i++){
+    for (var i= 0;i < suggestion.length; i++) {
       suggestion[i].className= 'hole'
     }
     init()
   }
 }
 
-var getElement= function(id){
+var getElement= function(id) {
   var element= document.getElementById(id)
   return element || {}
 }
 
-var createSuggestions= function(){
+var createSuggestions= function() {
   var near= {
     above:getElement(createId(selectedPeg.x -1, selectedPeg.y)),
     left:getElement(createId(selectedPeg.x, selectedPeg.y-1)),
@@ -84,31 +84,31 @@ var createSuggestions= function(){
     right:getElement(createId(selectedPeg.x , selectedPeg.y+2)),
     bellow:getElement(createId(selectedPeg.x +2, selectedPeg.y)),
   }
-  if(near.above.className== 'peg'&& possible.above.className== 'hole'){
+  if(near.above.className== 'peg'&& possible.above.className== 'hole') {
     suggestions.push(possible.above.id)
   }
-  if(near.left.className== 'peg'&& possible.left.className== 'hole'){
+  if(near.left.className== 'peg'&& possible.left.className== 'hole') {
     suggestions.push(possible.left.id)
   }
-  if(near.right.className== 'peg'&& possible.right.className== 'hole'){
+  if(near.right.className== 'peg'&& possible.right.className== 'hole') {
     suggestions.push(possible.right.id)
   }
-  if(near.bellow.className== 'peg'&& possible.bellow.className== 'hole'){
+  if(near.bellow.className== 'peg'&& possible.bellow.className== 'hole') {
     suggestions.push(possible.bellow.id)
   }
 }
 
-var showSuggestions= function(){
+var showSuggestions= function() {
   suggestions= []
   createSuggestions()
   var elementSuggestion= undefined
-  for (var i= 0;i < suggestions.length; i++){
+  for (var i= 0;i < suggestions.length; i++) {
     elementSuggestion= document.getElementById(suggestions[i])
     elementSuggestion.className= 'suggestion'
   }
 }
 
-var selectPeg= function(evt){
+var selectPeg= function(evt) {
   var peg= evt.target
   var idParts= peg.id&&peg.id.length ? peg.id.split('-'):[]
   if(idParts.length=== 3){
@@ -125,12 +125,12 @@ var selectPeg= function(evt){
       showSuggestions()
     }
   }
-  if (posibilities=== 0){
+  if (posibilities=== 0) {
     window.alert('No hay mas movimientos posibles')
   }
 }
 
-var saveName= function(){
+var saveName= function() {
   var option= window.confirm('No hay mas movimientos posibles¿Desea guardar su puntaje?')
   if(option== 1){
     var form= document.getElementsByClassName('save-user')
@@ -140,7 +140,7 @@ var saveName= function(){
   }
 }
 
-var gameOver= function(){
+var gameOver= function() {
   listPegs= document.getElementsByClassName('peg')
   posibilities= 0
   for (var i= 0;i < listPegs.length; i++){
@@ -157,12 +157,12 @@ var gameOver= function(){
     }
   }
   suggestions= []
-  if (posibilities=== 0){
+  if (posibilities=== 0) {
     saveName()
   }
 }
 
-var saveScore= function(){
+var saveScore= function() {
   var userScore= document.getElementsByClassName('form-name')
   if(userScore[0].value.length<3){
     alert('El nombre debe tener un mínimo de 3 caracteres')
@@ -175,18 +175,18 @@ var saveScore= function(){
   }
 }
 
-var cancelScore= function(){
+var cancelScore= function() {
   var userScore= document.getElementsByClassName('form-name')
   var form= document.getElementsByClassName('save-user')
   form[0].style.display= 'none'
   userScore[0].value= ''
 }
 
-var showScoreTable= function(){
+var showScoreTable= function() {
   scoreTable.sort(orderList)
   scoreTable.splice(10)
   var html= '<ol class="listscore">'
-  for (var i= 0;i < scoreTable.length; i++){
+  for (var i= 0;i < scoreTable.length; i++) {
     html+= '<li>'+scoreTable[i].name +'= '+scoreTable[i].score+'</li>'
   }
   html += '</ol>'
@@ -196,12 +196,12 @@ var showScoreTable= function(){
   form[0].style.display= 'inline-block'
 }
 
-var closeScoreTable= function(){
+var closeScoreTable= function() {
   var form= document.getElementsByClassName('score-table')
   form[0].style.display= 'none'
 }
 
-var orderList= function(a, b){
+var orderList= function(a, b) {
   return b.score - a.score
 }
 
