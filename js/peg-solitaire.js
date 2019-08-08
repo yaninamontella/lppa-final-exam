@@ -126,7 +126,7 @@ var selectPeg= function(evt){
     }
   }
   if (posibilities=== 0){
-    window.alert('No hay mas movimientos posibles');
+    window.alert('No hay mas movimientos posibles')
   }
 }
 
